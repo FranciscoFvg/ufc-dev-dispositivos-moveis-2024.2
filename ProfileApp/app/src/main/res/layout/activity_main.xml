@@ -20,8 +20,7 @@
             android:layout_height="145dp"
             android:layout_gravity="center_horizontal"
             android:contentDescription="Foto de perfil"
-            android:src="@drawable/ic_launcher_foreground"
-            app:srcCompat="@drawable/th" />
+            android:src="@drawable/th" />
 
         <!-- Nome -->
         <TextView

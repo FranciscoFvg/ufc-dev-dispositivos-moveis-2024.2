@@ -56,6 +56,7 @@ class MainActivity : AppCompatActivity() {
                 "Linkedin - dev web",
             )
 
+            experienceLayout.removeAllViews()
             // mudança dinamica da lista de experiencias
             for (exp in experiencias){
                 val textView = TextView(this)
