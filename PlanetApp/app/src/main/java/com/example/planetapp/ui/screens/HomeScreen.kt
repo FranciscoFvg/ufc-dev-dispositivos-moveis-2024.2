@@ -33,8 +33,9 @@ fun HomeScreen(
     onHelpClick: () -> Unit
 ) {
     var searchQuery by remember { mutableStateOf("") }
-    val filteredPlanets = remember(searchQuery) {
-        planetList.filter { it.name.contains(searchQuery, ignoreCase = true) }
+    var planets by remember { mutableStateOf(planetList) }
+    var filteredPlanets = remember(searchQuery, planets) {
+        planets.filter { it.name.contains(searchQuery, ignoreCase = true) }
     }
 
     val recentSearches = remember { mutableStateListOf<Planet>() }
@@ -80,6 +81,13 @@ fun HomeScreen(
                             onPlanetSelected(selectedPlanet)
                         },
                         onFavoriteToggle = { favoritePlanet ->
+                            planets = planets.map {
+                                if (it.name == favoritePlanet.name){
+                                    it.copy(isFavorite = !favoritePlanet.isFavorite)
+                                }
+                                else
+                                    it
+                            }
                             favoritePlanet.isFavorite = !favoritePlanet.isFavorite
                         }
                     )
