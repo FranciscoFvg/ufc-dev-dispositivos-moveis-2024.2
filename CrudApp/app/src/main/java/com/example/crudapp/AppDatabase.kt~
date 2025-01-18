@@ -1,0 +1,15 @@
+package com.example.crudapp
+
+import androidx.room.Database
+
+@Database(entities = [User::class], version = 1, exportSchema = false)
+abstract class AppDatabase {
+    abstract fun userDao(): UserDAO
+
+    companion object {
+        @Volatile
+        private var INSTANCE : AppDatabase? = null
+
+        
+    }
+}
