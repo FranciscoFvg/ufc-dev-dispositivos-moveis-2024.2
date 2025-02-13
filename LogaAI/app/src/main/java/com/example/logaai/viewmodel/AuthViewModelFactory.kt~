@@ -1,0 +1,4 @@
+package com.example.logaai.viewmodel
+
+class AuthViewModelFactory {
+}
